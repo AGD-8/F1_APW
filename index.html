@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorsport F1 & MotoGP App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Motorsport Hub</h1>
+        <p class="subtitle">Base de datos unificada de Fórmula 1 y MotoGP. Pilotos, Vehículos y Circuitos de élite diseñados a la perfección.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECCIÓN CIRCUITOS -->
+        <h2 class="section-title" style="border-color: #fff">Circuitos</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <!-- Backup unspash image if asset is missing -->
+                    <img src="assets/circuito_monaco.png" alt="Circuito de Mónaco" onerror="this.src='https://images.unsplash.com/photo-1541416752718-d7a6e1470ced?auto=format&fit=crop&w=600'">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Circuito de Mónaco</h3>
+                    <p class="card-text"><strong>País:</strong> Mónaco 🇲🇨</p>
+                    <p class="card-text"><strong>Longitud:</strong> 3.34 km</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="assets/circuito_silverstone.png" alt="Circuito de Silverstone" onerror="this.src='https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600'">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Circuito de Silverstone</h3>
+                    <p class="card-text"><strong>País:</strong> Reino Unido 🇬🇧</p>
+                    <p class="card-text"><strong>Longitud:</strong> 5.89 km</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN VEHÍCULOS -->
+        <h2 class="section-title">Vehículos Oficiales</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="assets/f1_bolido.png" alt="Fórmula 1 - Red Bull" onerror="this.src='https://images.unsplash.com/photo-1532054245648-fb2ce3fde93a?auto=format&fit=crop&w=600'">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Formula 1</span>
+                    <h3 class="card-title">Red Bull RB19</h3>
+                    <p class="card-text"><strong>Equipo:</strong> Red Bull Racing</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="assets/motogp_moto.png" alt="MotoGP - Ducati" onerror="this.src='https://plus.unsplash.com/premium_photo-1664303498863-71887e453000?auto=format&fit=crop&w=600'">
+                </div>
+                <div class="card-content">
+                    <span class="badge motogp">MotoGP</span>
+                    <h3 class="card-title">Desmosedici GP23</h3>
+                    <p class="card-text"><strong>Equipo:</strong> Ducati Lenovo Team</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN PILOTOS -->
+        <h2 class="section-title" style="border-color: #f1c40f">Pilotos Destacados</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="assets/piloto_max.png" alt="Max Verstappen" onerror="this.src='https://images.unsplash.com/photo-1506509930737-14faae9bfdcb?auto=format&fit=crop&w=600'">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Formula 1</span>
+                    <h3 class="card-title">Max Verstappen</h3>
+                    <p class="card-text"><strong>Nacionalidad:</strong> Países Bajos 🇳🇱</p>
+                    <p class="card-text"><strong>Dorsal:</strong> #1</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="assets/piloto_pecco.png" alt="Francesco Bagnaia" onerror="this.src='https://images.unsplash.com/photo-1580982544670-38c6426eb894?auto=format&fit=crop&w=600'">
+                </div>
+                <div class="card-content">
+                    <span class="badge motogp">MotoGP</span>
+                    <h3 class="card-title">Francesco Bagnaia</h3>
+                    <p class="card-text"><strong>Nacionalidad:</strong> Italia 🇮🇹</p>
+                    <p class="card-text"><strong>Dorsal:</strong> #1</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

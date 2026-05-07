@@ -1,128 +1,396 @@
 :root {
-  --primary: #e10600; /* F1 Red */
-  --motogp: #0082c3; 
-  --bg-dark: #0f1116;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --text-main: #ffffff;
-  --text-muted: #a0a0a0;
+  --primary: #ff1801;    /* Vibrant F1 Red */
+  --motogp: #00e5ff;     /* Vibrant MotoGP Blue/Cyan */
+  --bg-dark: #07090e;    /* Extremely dark blue/black background */
+  --card-bg: rgba(255, 255, 255, 0.03); /* Glass base */
+  --text-main: #fcfcfc;
+  --text-muted: #8b92a5;
+  --glow-f1: rgba(255, 24, 1, 0.4);
+  --glow-motogp: rgba(0, 229, 255, 0.4);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(255, 24, 1, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.08), transparent 25%);
   color: var(--text-main);
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-header {
-  padding: 60px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, rgba(225,6,0,0.2) 0%, rgba(15,17,22,1) 100%);
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(7, 9, 14, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.logo-red { color: var(--primary); }
+.logo-white { color: #fff; }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, #ff4b38 100%);
+  color: #fff !important;
+  padding: 8px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px var(--glow-f1);
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--glow-f1);
+}
+
+/* HERO SECTION */
+.hero {
+  padding: 150px 20px 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 h1 {
-  font-size: 3.5rem;
-  margin: 0 0 10px 0;
-  background: linear-gradient(to right, #e10600, #ff4c4c);
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0 0 15px 0;
+  background: linear-gradient(to right, #ffffff, #a0a0a0);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: -1px;
+  line-height: 1.1;
 }
 
-.subtitle {
+.hero .subtitle {
   color: var(--text-muted);
-  font-size: 1.2rem;
-  max-width: 600px;
+  font-size: 1.25rem;
+  max-width: 650px;
   margin: 0 auto;
+  font-weight: 300;
 }
 
+/* LAYOUT CONTAINER */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 20px 100px;
+}
+
+.section {
+  margin-bottom: 80px;
+  scroll-margin-top: 100px;
 }
 
 .section-title {
-  font-size: 2rem;
-  border-bottom: 3px solid var(--primary);
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, var(--text-main), transparent) 1;
   display: inline-block;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
+
+#circuitos .section-title { border-image: linear-gradient(to right, #ffffff, transparent) 1; }
+#vehiculos .section-title { border-image: linear-gradient(to right, var(--primary), transparent) 1; }
+#pilotos .section-title { border-image: linear-gradient(to right, var(--motogp), transparent) 1; }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
+  gap: 35px;
 }
 
+/* CARDS WITH GLASSMORPHISM AND NEON GLOW */
 .card {
   background: var(--card-bg);
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(225, 6, 0, 0.2);
-  border: 1px solid rgba(225, 6, 0, 0.3);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.15);
 }
+
+/* Specific glows */
+#vehiculos .card:nth-child(1):hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--glow-f1);
+  border-color: var(--primary);
+}
+#vehiculos .card:nth-child(2):hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--glow-motogp);
+  border-color: var(--motogp);
+}
+
+#pilotos .card:nth-child(1):hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--glow-f1);
+  border-color: var(--primary);
+}
+#pilotos .card:nth-child(2):hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--glow-motogp);
+  border-color: var(--motogp);
+}
+
 
 .card-img-wrapper {
   overflow: hidden;
-  height: 220px;
+  height: 240px;
+  position: relative;
 }
 
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
 }
 
 .card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, rgba(7,9,14,1) 0%, transparent 100%);
+  opacity: 0.6;
 }
 
 .card-content {
-  padding: 24px;
+  padding: 25px;
+  position: relative;
+  z-index: 2;
+  margin-top: -10px; /* Slight overlap for smooth blending */
 }
 
 .card-title {
-  font-size: 1.4rem;
-  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
   color: #fff;
+  font-weight: 600;
 }
 
 .badge {
   display: inline-block;
-  padding: 4px 12px;
-  background: var(--primary);
+  padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
+  margin-bottom: 15px;
+  letter-spacing: 1.5px;
 }
 
-.badge.motogp {
+.f1-badge {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 0 10px var(--glow-f1);
+}
+
+.motogp-badge {
   background: var(--motogp);
+  color: #000;
+  box-shadow: 0 0 10px var(--glow-motogp);
 }
 
 .card-text {
   color: var(--text-muted);
-  margin: 5px 0;
+  margin: 6px 0;
   font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-text strong {
-  color: #ddd;
+  color: #e0e0e0;
+}
+
+
+/* MODERN FORM - AÑADIR REGISTRO */
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-header h2 {
+  font-size: 2.2rem;
+  margin: 0 0 10px 0;
+  background: linear-gradient(135deg, #fff 0%, #8b92a5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form-header p {
+  color: var(--text-muted);
+}
+
+.glass-form {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-row {
+  display: flex;
+  gap: 20px;
+}
+
+.half-width {
+  flex: 1;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.glass-form input,
+.glass-form select {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 14px 18px;
+  border-radius: 12px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.glass-form input:focus,
+.glass-form select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--glow-f1);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.glass-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px top 50%;
+  background-size: 12px auto;
+}
+
+.glass-form select option {
+  background: var(--bg-dark);
+  color: #fff;
+}
+
+.submit-btn {
+  background: linear-gradient(90deg, var(--primary), #ffa32b);
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px var(--glow-f1);
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px var(--glow-f1);
+  filter: brightness(1.1);
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  .input-row { flex-direction: column; gap: 20px; }
+  .nav-links { display: none; } /* Could add a hamburger menu here */
 }

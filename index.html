@@ -7,97 +7,169 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Motorsport Hub</h1>
-        <p class="subtitle">Base de datos unificada de Fórmula 1 y MotoGP. Pilotos, Vehículos y Circuitos de élite diseñados a la perfección.</p>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-red">Motor</span><span class="logo-white">sport</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#circuitos">Circuitos</a></li>
+                <li><a href="#vehiculos">Vehículos</a></li>
+                <li><a href="#pilotos">Pilotos</a></li>
+                <li><a href="#nuevo-registro" class="nav-btn">Añadir Registro</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>La Pasión de la Velocidad</h1>
+            <p class="subtitle">Base de datos premium y unificada de Fórmula 1 y MotoGP. Una experiencia inmersiva con nuestra tecnología de visualización cristalina.</p>
+        </div>
     </header>
 
     <div class="container">
         
         <!-- SECCIÓN CIRCUITOS -->
-        <h2 class="section-title" style="border-color: #fff">Circuitos</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <!-- Backup unspash image if asset is missing -->
-                    <img src="assets/circuito_monaco.png" alt="Circuito de Mónaco" onerror="this.src='https://images.unsplash.com/photo-1541416752718-d7a6e1470ced?auto=format&fit=crop&w=600'">
+        <section id="circuitos" class="section">
+            <h2 class="section-title">Circuitos Internacionales</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1541416752718-d7a6e1470ced?auto=format&fit=crop&q=80&w=600" alt="Circuito de Mónaco">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Circuito de Mónaco</h3>
+                        <p class="card-text"><strong>País:</strong> Mónaco 🇲🇨</p>
+                        <p class="card-text"><strong>Longitud:</strong> 3.34 km</p>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3 class="card-title">Circuito de Mónaco</h3>
-                    <p class="card-text"><strong>País:</strong> Mónaco 🇲🇨</p>
-                    <p class="card-text"><strong>Longitud:</strong> 3.34 km</p>
-                </div>
-            </div>
 
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="assets/circuito_silverstone.png" alt="Circuito de Silverstone" onerror="this.src='https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600'">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Circuito de Silverstone</h3>
-                    <p class="card-text"><strong>País:</strong> Reino Unido 🇬🇧</p>
-                    <p class="card-text"><strong>Longitud:</strong> 5.89 km</p>
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=600" alt="Circuito de Silverstone">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Circuito de Silverstone</h3>
+                        <p class="card-text"><strong>País:</strong> Reino Unido 🇬🇧</p>
+                        <p class="card-text"><strong>Longitud:</strong> 5.89 km</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- SECCIÓN VEHÍCULOS -->
-        <h2 class="section-title">Vehículos Oficiales</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="assets/f1_bolido.png" alt="Fórmula 1 - Red Bull" onerror="this.src='https://images.unsplash.com/photo-1532054245648-fb2ce3fde93a?auto=format&fit=crop&w=600'">
+        <section id="vehiculos" class="section">
+            <h2 class="section-title">Máquinas Oficiales</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1532054245648-fb2ce3fde93a?auto=format&fit=crop&q=80&w=600" alt="Fórmula 1 - Red Bull">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge f1-badge">Formula 1</span>
+                        <h3 class="card-title">Red Bull RB19</h3>
+                        <p class="card-text"><strong>Equipo:</strong> Red Bull Racing</p>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <span class="badge">Formula 1</span>
-                    <h3 class="card-title">Red Bull RB19</h3>
-                    <p class="card-text"><strong>Equipo:</strong> Red Bull Racing</p>
-                </div>
-            </div>
 
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="assets/motogp_moto.png" alt="MotoGP - Ducati" onerror="this.src='https://plus.unsplash.com/premium_photo-1664303498863-71887e453000?auto=format&fit=crop&w=600'">
-                </div>
-                <div class="card-content">
-                    <span class="badge motogp">MotoGP</span>
-                    <h3 class="card-title">Desmosedici GP23</h3>
-                    <p class="card-text"><strong>Equipo:</strong> Ducati Lenovo Team</p>
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&q=80&w=600" alt="MotoGP - Ducati">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge motogp-badge">MotoGP</span>
+                        <h3 class="card-title">Desmosedici GP23</h3>
+                        <p class="card-text"><strong>Equipo:</strong> Ducati Lenovo Team</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- SECCIÓN PILOTOS -->
-        <h2 class="section-title" style="border-color: #f1c40f">Pilotos Destacados</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="assets/piloto_max.png" alt="Max Verstappen" onerror="this.src='https://images.unsplash.com/photo-1506509930737-14faae9bfdcb?auto=format&fit=crop&w=600'">
+        <section id="pilotos" class="section">
+            <h2 class="section-title" style="border-image: linear-gradient(to right, #f1c40f, transparent) 1;">Pilotos Destacados</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1627881023026-66f8e775351e?auto=format&fit=crop&q=80&w=600" alt="Max Verstappen">
+                        <div class="overlay f1-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge f1-badge">Formula 1</span>
+                        <h3 class="card-title">Max Verstappen</h3>
+                        <p class="card-text"><strong>Nacionalidad:</strong> Países Bajos 🇳🇱</p>
+                        <p class="card-text"><strong>Dorsal:</strong> #1</p>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <span class="badge">Formula 1</span>
-                    <h3 class="card-title">Max Verstappen</h3>
-                    <p class="card-text"><strong>Nacionalidad:</strong> Países Bajos 🇳🇱</p>
-                    <p class="card-text"><strong>Dorsal:</strong> #1</p>
-                </div>
-            </div>
 
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="assets/piloto_pecco.png" alt="Francesco Bagnaia" onerror="this.src='https://images.unsplash.com/photo-1580982544670-38c6426eb894?auto=format&fit=crop&w=600'">
-                </div>
-                <div class="card-content">
-                    <span class="badge motogp">MotoGP</span>
-                    <h3 class="card-title">Francesco Bagnaia</h3>
-                    <p class="card-text"><strong>Nacionalidad:</strong> Italia 🇮🇹</p>
-                    <p class="card-text"><strong>Dorsal:</strong> #1</p>
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1541416753018-8f55da2d80d1?auto=format&fit=crop&q=80&w=600" alt="Francesco Bagnaia">
+                        <div class="overlay motogp-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge motogp-badge">MotoGP</span>
+                        <h3 class="card-title">Francesco Bagnaia</h3>
+                        <p class="card-text"><strong>Nacionalidad:</strong> Italia 🇮🇹</p>
+                        <p class="card-text"><strong>Dorsal:</strong> #1</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- SECCIÓN AÑADIR REGISTRO -->
+        <section id="nuevo-registro" class="section">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <h2>Añadir Nuevo Registro</h2>
+                    <p>Introduce los datos para expandir la base de datos de Motorsport</p>
+                </div>
+                <form action="#" method="POST" class="glass-form">
+                    <div class="input-group">
+                        <label for="category">Categoría</label>
+                        <select id="category" name="category">
+                            <option value="circuito">Circuito</option>
+                            <option value="vehiculo">Vehículo</option>
+                            <option value="piloto">Piloto</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Ej: Circuito de las Américas" required>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group half-width">
+                            <label for="country">País / Nacionalidad</label>
+                            <input type="text" id="country" name="country" placeholder="Ej: Estados Unidos">
+                        </div>
+                        <div class="input-group half-width">
+                            <label for="number">Dorsal / Longitud</label>
+                            <input type="text" id="number" name="number" placeholder="Ej: 5.51">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="image">URL de la Imagen</label>
+                        <input type="url" id="image" name="image" placeholder="https://unsplash.com/photos/...">
+                    </div>
+
+                    <button type="submit" class="submit-btn">Guardar Registro</button>
+                </form>
+            </div>
+        </section>
 
     </div>
+
+    <footer>
+        <p>© 2026 Motorsport Hub - Creado con precisión de ingeniería</p>
+    </footer>
 </body>
 </html>

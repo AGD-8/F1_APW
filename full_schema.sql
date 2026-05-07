@@ -82,15 +82,7 @@ CREATE TABLE IF NOT EXISTS mensajes (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
--- Inserción de datos iniciales (Única vez)
-INSERT INTO circuitos (nombre, pais, longitud_km, imagen_url, curvas_principales, forma_circuito, anio_inauguracion, capacidad, vuelta_rapida) VALUES
-('Circuito de Mónaco', 'Mónaco', 3.34, 'assets/circuito_monaco.png', 'Sainte-Dévote, Casino, Loews Hairpin, Tunnel, Tabac, Rascasse.', 'Circuito urbano que recorre las calles del Principado de Mónaco.', 1929, 37000, '1:10.166 (Lewis Hamilton)');
 
-INSERT INTO pilotos (nombre, nacionalidad, dorsal, imagen_url, anio_nacimiento, cualidades, titulos, equipo_actual, historia_equipos) VALUES
-('Max Verstappen', 'Países Bajos', 1, 'assets/Screenshot 2026-05-07 113859.png', 1997, 'Determinación implacable, control en lluvia.', 3, 'Oracle Red Bull Racing', 'Toro Rosso, Red Bull Racing'),
-('Pecco Bagnaia', 'Italia', 63, 'assets/Screenshot 2026-05-07 114005.png', 1997, 'Frenada quirúrgica, consistencia.', 2, 'Ducati Lenovo Team', 'Pramac Racing, Ducati Team');
-
-INSERT INTO vehiculos (nombre, equipo, categoria, imagen_url, tipos_neumaticos, motor, velocidad_max, aceleracion_0_100, peso_kg) VALUES
-('Red Bull RB19', 'Red Bull Racing', 'Formula 1', 'assets/Screenshot 2026-05-07 114049.png', 'Soft, Medium, Hard', 'Honda RBPTH001 1.6 V6', '350 km/h', '2.4s', 798),
-('Ducati Desmosedici GP23', 'Ducati Lenovo Team', 'MotoGP', 'assets/motogp_moto.png', 'Slick, Rain', 'Ducati 1000cc V4', '360 km/h', '2.6s', 157);
+-- La base de datos se inicializa vacía. 
+-- Los elementos deben añadirse a través de los formularios de la aplicación.
 

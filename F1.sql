@@ -31,15 +31,5 @@ CREATE TABLE IF NOT EXISTS pilotos (
     FOREIGN KEY (id_vehiculo) REFERENCES vehiculos(id_vehiculo) ON DELETE SET NULL
 );
 
--- Inserción de registros de ejemplo
-INSERT INTO circuitos (nombre, pais, longitud_km, imagen_url) VALUES
-('Circuito de Mónaco', 'Mónaco', 3.34, 'assets/circuito_monaco.png'),
-('Circuito de Silverstone', 'Reino Unido', 5.89, 'assets/circuito_silverstone.png');
 
-INSERT INTO vehiculos (equipo, nombre_vehiculo, categoria, imagen_url) VALUES
-('Red Bull Racing', 'Red Bull RB19', 'Formula 1', 'assets/f1_bolido.png'),
-('Ducati Lenovo Team', 'Desmosedici GP23', 'MotoGP', 'assets/motogp_moto.png');
-
-INSERT INTO pilotos (nombre, nacionalidad, dorsal, id_vehiculo, imagen_url) VALUES
-('Max Verstappen', 'Países Bajos', 1, 1, 'assets/piloto_max.png'),
-('Francesco Bagnaia', 'Italia', 1, 2, 'assets/piloto_pecco.png');
+-- Registros eliminados para evitar duplicación.

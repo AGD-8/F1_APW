@@ -21,12 +21,16 @@
                 <li><a href="#circuitos">Circuitos</a></li>
                 <li><a href="#vehiculos">Vehículos</a></li>
                 <li><a href="#pilotos">Pilotos</a></li>
-                <li><a href="#nuevo-registro" class="nav-btn">Añadir Registro</a></li>
+                <li><button id="open-modal-btn" class="nav-btn">Añadir Registro</button></li>
             </ul>
         </div>
     </nav>
 
     <header class="hero">
+        <div class="diagonal-logo">
+            <div class="f1-half">F1</div>
+            <div class="motogp-half">MotoGP</div>
+        </div>
         <div class="hero-content">
             <h1>La Pasión de la Velocidad</h1>
             <p class="subtitle">Base de datos premium y unificada de Fórmula 1 y MotoGP. Una experiencia inmersiva con nuestra tecnología de visualización cristalina.</p>
@@ -41,7 +45,7 @@
             <div class="grid">
                 <div class="card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1541416752718-d7a6e1470ced?auto=format&fit=crop&q=80&w=600" alt="Circuito de Mónaco">
+                        <img src="assets/Screenshot 2026-05-07 113248.png" alt="Circuito de Mónaco">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Circuito de Mónaco</h3>
@@ -52,7 +56,7 @@
 
                 <div class="card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=600" alt="Circuito de Silverstone">
+                        <img src="assets/Gemini_Generated_Image_z70il3z70il3z70i.png" alt="Circuito de Silverstone">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Circuito de Silverstone</h3>
@@ -65,11 +69,11 @@
 
         <!-- SECCIÓN VEHÍCULOS -->
         <section id="vehiculos" class="section">
-            <h2 class="section-title">Máquinas Oficiales</h2>
+            <h2 class="section-title">Vehículo destacados</h2>
             <div class="grid">
                 <div class="card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1532054245648-fb2ce3fde93a?auto=format&fit=crop&q=80&w=600" alt="Fórmula 1 - Red Bull">
+                        <img src="assets/Screenshot 2026-05-07 114049.png" alt="Fórmula 1 - Red Bull">
                     </div>
                     <div class="card-content">
                         <span class="badge f1-badge">Formula 1</span>
@@ -80,7 +84,7 @@
 
                 <div class="card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&q=80&w=600" alt="MotoGP - Ducati">
+                        <img src="assets/motogp_moto.png" alt="MotoGP - Ducati">
                     </div>
                     <div class="card-content">
                         <span class="badge motogp-badge">MotoGP</span>
@@ -97,7 +101,7 @@
             <div class="grid">
                 <div class="card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1627881023026-66f8e775351e?auto=format&fit=crop&q=80&w=600" alt="Max Verstappen">
+                        <img src="assets/Screenshot 2026-05-07 113859.png" alt="Max Verstappen">
                         <div class="overlay f1-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -110,27 +114,29 @@
 
                 <div class="card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1541416753018-8f55da2d80d1?auto=format&fit=crop&q=80&w=600" alt="Francesco Bagnaia">
+                        <img src="assets/Screenshot 2026-05-07 114005.png" alt="Francesco Bagnaia">
                         <div class="overlay motogp-overlay"></div>
                     </div>
                     <div class="card-content">
                         <span class="badge motogp-badge">MotoGP</span>
                         <h3 class="card-title">Francesco Bagnaia</h3>
                         <p class="card-text"><strong>Nacionalidad:</strong> Italia 🇮🇹</p>
-                        <p class="card-text"><strong>Dorsal:</strong> #1</p>
+                        <p class="card-text"><strong>Dorsal:</strong> #63</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN AÑADIR REGISTRO -->
-        <section id="nuevo-registro" class="section">
-            <div class="form-wrapper">
+        <!-- MODAL AÑADIR REGISTRO -->
+        <div id="registration-modal" class="modal">
+            <div class="modal-content glass-form">
+                <span class="close-btn">&times;</span>
                 <div class="form-header">
                     <h2>Añadir Nuevo Registro</h2>
                     <p>Introduce los datos para expandir la base de datos de Motorsport</p>
                 </div>
-                <form action="#" method="POST" class="glass-form">
+                <form id="reg-form" action="#" method="POST">
                     <div class="input-group">
                         <label for="category">Categoría</label>
                         <select id="category" name="category">
@@ -140,20 +146,8 @@
                         </select>
                     </div>
 
-                    <div class="input-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" placeholder="Ej: Circuito de las Américas" required>
-                    </div>
-
-                    <div class="input-row">
-                        <div class="input-group half-width">
-                            <label for="country">País / Nacionalidad</label>
-                            <input type="text" id="country" name="country" placeholder="Ej: Estados Unidos">
-                        </div>
-                        <div class="input-group half-width">
-                            <label for="number">Dorsal / Longitud</label>
-                            <input type="text" id="number" name="number" placeholder="Ej: 5.51">
-                        </div>
+                    <div id="dynamic-fields">
+                        <!-- Fields will be injected here -->
                     </div>
 
                     <div class="input-group">
@@ -164,12 +158,85 @@
                     <button type="submit" class="submit-btn">Guardar Registro</button>
                 </form>
             </div>
-        </section>
+        </div>
 
     </div>
 
     <footer>
         <p>© 2026 Motorsport Hub - Creado con precisión de ingeniería</p>
     </footer>
+    <script>
+        const modal = document.getElementById("registration-modal");
+        const btn = document.getElementById("open-modal-btn");
+        const span = document.getElementsByClassName("close-btn")[0];
+        const categorySelect = document.getElementById("category");
+        const dynamicFields = document.getElementById("dynamic-fields");
+
+        const fieldConfigs = {
+            circuito: `
+                <div class="input-group">
+                    <label for="name">Nombre del Circuito</label>
+                    <input type="text" id="name" name="name" placeholder="Ej: Spa-Francorchamps" required>
+                </div>
+                <div class="input-row">
+                    <div class="input-group half-width">
+                        <label for="country">País</label>
+                        <input type="text" id="country" name="country" placeholder="Ej: Bélgica">
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="length">Longitud (km)</label>
+                        <input type="text" id="length" name="length" placeholder="Ej: 7.004">
+                    </div>
+                </div>
+            `,
+            vehiculo: `
+                <div class="input-group">
+                    <label for="name">Nombre del Vehículo</label>
+                    <input type="text" id="name" name="name" placeholder="Ej: Ferrari SF-24" required>
+                </div>
+                <div class="input-group">
+                    <label for="team">Equipo</label>
+                    <input type="text" id="team" name="team" placeholder="Ej: Scuderia Ferrari">
+                </div>
+            `,
+            piloto: `
+                <div class="input-group">
+                    <label for="name">Nombre del Piloto</label>
+                    <input type="text" id="name" name="name" placeholder="Ej: Lewis Hamilton" required>
+                </div>
+                <div class="input-row">
+                    <div class="input-group half-width">
+                        <label for="country">Nacionalidad</label>
+                        <input type="text" id="country" name="country" placeholder="Ej: Reino Unido">
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="number">Dorsal</label>
+                        <input type="text" id="number" name="number" placeholder="Ej: 44">
+                    </div>
+                </div>
+            `
+        };
+
+        function updateFields() {
+            dynamicFields.innerHTML = fieldConfigs[categorySelect.value];
+        }
+
+        btn.onclick = function() {
+            modal.style.display = "flex";
+            updateFields();
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        categorySelect.onchange = updateFields;
+    </script>
 </body>
 </html>

@@ -40,62 +40,160 @@ $vehiculos = $pdo->query("SELECT * FROM vehiculos ORDER BY id DESC")->fetchAll()
     <link rel="stylesheet" href="style.css">
     <style>
         .hero-home {
-            height: 100vh;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #000;
+        }
+
+        .split-container {
+            flex: 1;
+            min-height: 65vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            --split-top: 50%;
+            --split-bottom: 50%;
+            transition: --split-top 0.5s cubic-bezier(0.25, 1, 0.5, 1), --split-bottom 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        @property --split-top {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 50%;
+        }
+        @property --split-bottom {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 50%;
+        }
+
+        .split-container:has(.split-f1:hover) {
+            --split-top: 60%;
+            --split-bottom: 55%;
+        }
+
+        .split-container:has(.split-motogp:hover) {
+            --split-top: 40%;
+            --split-bottom: 45%;
+        }
+
+        .split-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .split-f1 {
+            background: linear-gradient(135deg, rgba(140,10,0,0.85) 0%, rgba(15,0,0,0.95) 100%),
+                        repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 40px);
+            clip-path: polygon(0 0, var(--split-top) 0, var(--split-bottom) 100%, 0 100%);
+            z-index: 1;
+        }
+
+        .split-motogp {
+            background: linear-gradient(135deg, rgba(10,0,0,0.95) 0%, rgba(0,80,130,0.85) 100%);
+            clip-path: polygon(var(--split-top) 0, 100% 0, 100% 100%, var(--split-bottom) 100%);
+            z-index: 1;
+        }
+
+        .split-f1 .split-content {
+            transform: translateX(-15vw);
+        }
+        .split-motogp .split-content {
+            transform: translateX(15vw);
+        }
+
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.3;
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+        }
+
+        .split-bg:hover .split-content {
+            opacity: 1;
+        }
+
+        .split-f1:hover .split-content {
+            transform: translateX(-15vw) scale(1.15);
+        }
+        .split-motogp:hover .split-content {
+            transform: translateX(15vw) scale(1.15);
+        }
+
+        .split-icon {
+            font-size: 6rem;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+        }
+
+        .split-text {
+            font-size: 4rem;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero-bottom-content {
+            padding: 50px 20px 60px;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(to bottom, #07090e 0%, #000 100%);
             position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 5rem;
-            font-weight: 900;
-            letter-spacing: -2px;
-            margin: 0;
-            text-transform: uppercase;
-            animation: slideUp 1s ease-out;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #8b92a5;
-            max-width: 700px;
-            margin-top: 20px;
+            z-index: 10;
             animation: fadeIn 1.5s ease-out;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin: 0;
+            text-transform: uppercase;
+            color: #fff;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #b0b8c5;
+            margin-top: 10px;
+            font-weight: 300;
         }
 
         .scroll-down {
             position: absolute;
             bottom: 40px;
+            z-index: 10;
             animation: bounce 2s infinite;
             cursor: pointer;
-            color: var(--primary);
+            color: #fff;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
         }
 
         .section-header {
@@ -139,17 +237,27 @@ $vehiculos = $pdo->query("SELECT * FROM vehiculos ORDER BY id DESC")->fetchAll()
     </nav>
 
     <header class="hero-home">
-        <div class="diagonal-logo" style="transform: scale(1.2); margin-bottom: 30px;">
-            <div class="f1-half">F1</div>
-            <div class="motogp-half">MotoGP</div>
+        <div class="split-container">
+            <!-- Fondo F1 Izquierda -->
+            <div class="split-bg split-f1">
+                <div class="split-content">
+                    <span class="split-icon">🏁</span>
+                    <div class="split-text">F1</div>
+                </div>
+            </div>
+            
+            <!-- Fondo MotoGP Derecha -->
+            <div class="split-bg split-motogp">
+                <div class="split-content">
+                    <span class="split-icon">🏆</span>
+                    <div class="split-text">MotoGP</div>
+                </div>
+            </div>
         </div>
-        <h1 class="hero-title">WORLD OF <span style="color:var(--primary)">SPEED</span></h1>
-        <p class="hero-subtitle">Descubre la élite del motor. Una plataforma premium diseñada para los amantes de la
-            Fórmula 1 y MotoGP.</p>
 
-        <div class="scroll-down" onclick="window.scrollTo(0, window.innerHeight)">
-            <p style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 10px;">EXPLORAR</p>
-            <span style="font-size: 1.5rem;">↓</span>
+        <div class="hero-bottom-content">
+            <h1 class="hero-title">WORLD OF <span style="color:var(--primary)">SPEED</span></h1>
+            <p class="hero-subtitle">Descubre la élite del motor. Una plataforma premium diseñada para los amantes de la Fórmula 1 y MotoGP.</p>
         </div>
     </header>
 

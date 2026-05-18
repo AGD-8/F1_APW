@@ -42,7 +42,7 @@ $valoraciones = $stmt->fetchAll();
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo"><span class="logo-red">Motor</span><span class="logo-white">sport</span></div>
+            <div class="logo"><span class="logo-ultra">ULTRA</span><span class="logo-speed">SPEED</span></div>
             <ul class="nav-links">
                 <li><a href="index.php">Inicio</a></li>
             </ul>
@@ -103,12 +103,15 @@ $valoraciones = $stmt->fetchAll();
                             <button type="submit" class="submit-btn" style="width: 100%; margin-top: 10px;">Enviar Valoración</button>
                         </form>
                     </div>
-                    <div style="display: flex; gap: 20px; margin-top: 30px;">
-                        <a href="index.php" class="submit-btn" style="background: #444; flex: 1; text-align: center;">← Volver al Inicio</a>
+                    <div style="display: flex; gap: 20px; margin-top: 30px; flex-wrap: wrap;">
+                        <a href="index.php" class="submit-btn" style="background: #444; flex: 1; text-align: center; min-width: 150px;">← Volver al Inicio</a>
                         <?php if (isset($_SESSION['user_id'])): ?>
+                            <a href="editar.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>" 
+                               class="submit-btn" 
+                               style="background: #2b78ff; flex: 1; text-align: center; min-width: 150px;">✏️ Editar Registro</a>
                             <a href="eliminar.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>" 
                                class="submit-btn" 
-                               style="background: #e00606; flex: 1; text-align: center;"
+                               style="background: #e00606; flex: 1; text-align: center; min-width: 150px;"
                                onclick="return confirm('¿Estás seguro de que quieres eliminar este elemento de UltraSpeed?')">🗑 Eliminar Registro</a>
                         <?php endif; ?>
                     </div>

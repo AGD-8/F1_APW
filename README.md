@@ -223,8 +223,8 @@ Abre el archivo `config.php` y verifica las credenciales de conexión con MySQL.
 
 ```php
 $host = 'localhost';
-$db   = 'motorsport_full_db';
-$user = 'root';
+$db   = 'tu_nombre_de_bd';
+$user = 'tu_usuario';
 $pass = ''; // Por defecto viene vacío
 ```
 
